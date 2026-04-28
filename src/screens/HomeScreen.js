@@ -1,4 +1,5 @@
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet, Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import ProductCard from "../components/ProductCard";
 
 const products = [
@@ -19,6 +20,14 @@ const products = [
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      
+      <LinearGradient
+        colors={["#fbc2eb", "#a6c1ee"]}
+        style={styles.header}
+      >
+        <Text style={styles.title}>Art by Heaven ✨</Text>
+      </LinearGradient>
+
       <FlatList
         data={products}
         numColumns={2}
@@ -36,7 +45,17 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fdf6f9",
     flex: 1,
+    backgroundColor: "#fdf6f9",
+  },
+  header: {
+    padding: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#fff",
   },
 });
